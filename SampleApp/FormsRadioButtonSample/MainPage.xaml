@@ -1,7 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:FormsRadioButtonSample" x:Class="FormsRadioButtonSample.MainPage">
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="FormsRadioButtonSample.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FormsRadioButtonSample"
+             xmlns:radioButton="clr-namespace:FormsRadioButton;assembly=FormsRadioButton">
+
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+        <Label HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               FontAttributes="Bold"
+               Text="Radio Buttons Below" />
+
+        <radioButton:FormsRadioButton RadioItems="{Binding RadioItems}" />
+
+        <Button Margin="20,0"
+                BackgroundColor="Black"
+                Command="{Binding ManualGetCommand}"
+                Text="Manually Get Selected"
+                TextColor="White" />
+
     </StackLayout>
+
 </ContentPage>

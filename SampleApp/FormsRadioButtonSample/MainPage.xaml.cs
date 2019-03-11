@@ -11,7 +11,9 @@ namespace FormsRadioButtonSample
     {
         public MainPage()
         {
+            Xamarin.Forms.PlatformConfiguration.iOSSpecific.Page.SetUseSafeArea(this, true);
             InitializeComponent();
+            BindingContext = new MainPageViewModel();
         }
     }
 }
