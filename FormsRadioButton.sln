@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsRadioButton", "FormsRadioButton\FormsRadioButton.csproj", "{2E1ADE06-2FBC-415C-AE95-1B06699FE046}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E1ADE06-2FBC-415C-AE95-1B06699FE046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E1ADE06-2FBC-415C-AE95-1B06699FE046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E1ADE06-2FBC-415C-AE95-1B06699FE046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1ADE06-2FBC-415C-AE95-1B06699FE046}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
