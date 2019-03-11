@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 
@@ -18,7 +17,7 @@ namespace FormsRadioButton
             {
                 foreach (RadioItem radioItem in e.NewItems)
                 {
-                    radioItem.PropertyChanged += RadioItemToggled;
+                    radioItem.PropertyChanged += OnRadioItemToggled;
                 }
             }
 
@@ -26,7 +25,7 @@ namespace FormsRadioButton
             {
                 foreach (RadioItem radioItem in e.OldItems)
                 {
-                    radioItem.PropertyChanged -= RadioItemToggled;
+                    radioItem.PropertyChanged -= OnRadioItemToggled;
                 }
             }
         }
@@ -34,29 +33,27 @@ namespace FormsRadioButton
         bool busy;
         int highestSelectedIndex;
 
-        void RadioItemToggled(object sender, PropertyChangedEventArgs e)
+        void OnRadioItemToggled(object sender, PropertyChangedEventArgs e)
         {
             if (busy) return;
             busy = true;
 
             if (sender is RadioItem toggledRadioItem)
             {
-                var indexOfSelectedItem = IndexOf(toggledRadioItem);
+                highestSelectedIndex = IndexOf(toggledRadioItem) > highestSelectedIndex ? IndexOf(toggledRadioItem) : highestSelectedIndex;
 
-                if (indexOfSelectedItem > highestSelectedIndex)
+                // I know which the highest selected index is, nothing can be togged after that so don't bother to loop any more than required.
+                for (int i = 0; i < highestSelectedIndex + 1; i++)
                 {
-                    highestSelectedIndex = indexOfSelectedItem;
-                }
-
-                foreach (var radioItem in this)
-                {
-                    if (toggledRadioItem != radioItem)
+                    if (toggledRadioItem != this[i])
                     {
-                        radioItem.PropertyChanged -= RadioItemToggled;
-                        radioItem.Toggled = false;
-                        radioItem.PropertyChanged += RadioItemToggled;
+                        this[i].PropertyChanged -= OnRadioItemToggled;
+                        this[i].Toggled = false;
+                        this[i].PropertyChanged += OnRadioItemToggled;
                     }
                 }
+
+                highestSelectedIndex = IndexOf(toggledRadioItem) < highestSelectedIndex ? IndexOf(toggledRadioItem) : highestSelectedIndex;
             }
 
             busy = false;
