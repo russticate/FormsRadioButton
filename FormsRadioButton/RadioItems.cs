@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -55,11 +56,17 @@ namespace FormsRadioButton
                 }
 
                 highestSelectedIndex = IndexOf(toggledRadioItem) < highestSelectedIndex ? IndexOf(toggledRadioItem) : highestSelectedIndex;
-
-                MessagingCenter.Send<RadioItem>(toggledRadioItem, "radio_item_selected");
+                OnItemToggled(toggledRadioItem);
             }
 
             busy = false;
+        }
+
+        public event EventHandler ItemToggled;
+
+        void OnItemToggled(RadioItem selectedItem)
+        {
+            ItemToggled?.Invoke(selectedItem, null);
         }
     }
 }

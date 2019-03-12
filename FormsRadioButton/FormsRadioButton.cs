@@ -11,7 +11,14 @@ namespace FormsRadioButton
         {
             BuildList();
             Content = list;
-            MessagingCenter.Subscribe<RadioItem>(this, "radio_item_selected", OnItemToggled);
+            list.BindingContextChanged += OnListBindingContextChanged;          
+        }
+  
+        private void OnListBindingContextChanged(object sender, EventArgs e)
+        {
+            list.BindingContextChanged -= OnListBindingContextChanged;
+            var radioItems = ((ListView)sender).ItemsSource as RadioItems;
+            radioItems.ItemToggled += (radioItem, _) => OnItemToggled(radioItem as RadioItem);
         }
 
         void BuildList()
@@ -23,14 +30,13 @@ namespace FormsRadioButton
                 ItemTemplate = new DataTemplate(typeof(SwitchCell))
             };
 
+            list.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(RadioItems)));
             list.ItemTemplate.SetBinding(SwitchCell.TextProperty, nameof(RadioItem.Text));
-            list.ItemTemplate.SetBinding(SwitchCell.OnProperty, nameof(RadioItem.Toggled));  
+            list.ItemTemplate.SetBinding(SwitchCell.OnProperty, nameof(RadioItem.Toggled));
         }
 
         public static BindableProperty RadioItemsProperty =
-            BindableProperty.Create(nameof(RadioItems), typeof(RadioItems), typeof(FormsRadioButton), null,
-                defaultBindingMode: BindingMode.OneWay,
-                propertyChanged: (bindable, _, items) => ((FormsRadioButton)bindable).list.ItemsSource = (RadioItems)items);
+            BindableProperty.Create(nameof(RadioItems), typeof(RadioItems), typeof(FormsRadioButton));
            
         public RadioItems RadioItems
         {
