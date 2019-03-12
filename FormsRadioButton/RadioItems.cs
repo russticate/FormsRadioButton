@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace FormsRadioButton
 {
@@ -54,6 +55,8 @@ namespace FormsRadioButton
                 }
 
                 highestSelectedIndex = IndexOf(toggledRadioItem) < highestSelectedIndex ? IndexOf(toggledRadioItem) : highestSelectedIndex;
+
+                MessagingCenter.Send<RadioItem>(toggledRadioItem, "radio_item_selected");
             }
 
             busy = false;

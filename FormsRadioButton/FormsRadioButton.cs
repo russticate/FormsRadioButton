@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace FormsRadioButton
 {
@@ -10,6 +11,7 @@ namespace FormsRadioButton
         {
             BuildList();
             Content = list;
+            MessagingCenter.Subscribe<RadioItem>(this, "radio_item_selected", OnItemToggled);
         }
 
         void BuildList()
@@ -34,6 +36,13 @@ namespace FormsRadioButton
         {
             get => (RadioItems)GetValue(RadioItemsProperty);
             set => SetValue(RadioItemsProperty, value);
+        }
+
+        public event EventHandler<RadioItemToggledEventArgs> ItemToggled;
+
+        void OnItemToggled(RadioItem selectedRadioItem)
+        {
+            ItemToggled?.Invoke(this, new RadioItemToggledEventArgs(selectedRadioItem));
         }
     }
 }
