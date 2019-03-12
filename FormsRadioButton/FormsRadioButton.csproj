@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>1.0</PackageId>
+    <PackageVersion>1.0</PackageVersion>
+    <Authors>russticate</Authors>
+    <Owners>russticate</Owners>
+    <PackageProjectUrl>https://github.com/russticate/FormsRadioButton</PackageProjectUrl>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <Summary>I needed a fast &amp; simple radio button for Xamarin.Forms.</Summary>
+    <PackageTags>Xamarin Forms, Xamarin, Radio Button</PackageTags>
+    <Title>Xamarin Forms Radio Button</Title>
+    <Description>I needed a fast &amp; simple radio button for Xamarin.Forms.</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,5 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
   </ItemGroup>
 </Project>
