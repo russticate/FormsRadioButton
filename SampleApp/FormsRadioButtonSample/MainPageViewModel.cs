@@ -28,7 +28,7 @@ namespace FormsRadioButtonSample
 
         private async void OnManualGetCommandExecuted(object obj)
         {
-            var selectedRadioItem = RadioItems.FirstOrDefault(x => x.Toggled == true);
+            var selectedRadioItem = RadioItems.FirstOrDefault(x => x.Toggled);
 
             if (selectedRadioItem == null)
             {

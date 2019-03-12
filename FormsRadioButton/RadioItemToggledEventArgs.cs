@@ -5,12 +5,10 @@ namespace FormsRadioButton
     public class RadioItemToggledEventArgs : EventArgs
     {
         public RadioItem SelectedItem { get; }
-        public int SelectedIndex { get; }
 
-        public RadioItemToggledEventArgs(RadioItem selectedItem, int selectedIndex)
+        public RadioItemToggledEventArgs(RadioItem selectedItem)
         {
             SelectedItem = selectedItem;
-            SelectedIndex = selectedIndex;
         }
     }
 }
