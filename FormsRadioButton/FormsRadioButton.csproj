@@ -12,7 +12,9 @@
     <Summary>I needed a fast &amp; simple radio button for Xamarin.Forms.</Summary>
     <PackageTags>Xamarin Forms, Xamarin, Radio Button</PackageTags>
     <Title>Xamarin Forms Radio Button</Title>
-    <Description>I needed a fast &amp; simple radio button for Xamarin.Forms.</Description>
+    <Description>A fast &amp; simple radio button for Xamarin.Forms.</Description>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <PackageLicenseUrl>https://github.com/russticate/FormsRadioButton/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
