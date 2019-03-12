@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
-    <PackageId>1.0</PackageId>
+    <PackageId>com.russticate.formsradiobutton</PackageId>
     <PackageVersion>1.0</PackageVersion>
     <Authors>russticate</Authors>
     <Owners>russticate</Owners>
