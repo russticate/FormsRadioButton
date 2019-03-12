@@ -24,7 +24,7 @@ namespace FormsRadioButton
             };
 
             list.ItemTemplate.SetBinding(SwitchCell.TextProperty, nameof(RadioItem.Text));
-            list.ItemTemplate.SetBinding(SwitchCell.OnProperty, nameof(RadioItem.Toggled));
+            list.ItemTemplate.SetBinding(SwitchCell.OnProperty, nameof(RadioItem.Toggled));  
         }
 
         public static BindableProperty RadioItemsProperty =
