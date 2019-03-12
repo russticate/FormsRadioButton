@@ -8,7 +8,7 @@ namespace FormsRadioButton
 
         public RadioItemToggledEventArgs(RadioItem selectedItem)
         {
-            SelectedItem = selectedItem;
+            SelectedItem = selectedItem;     
         }
     }
 }
